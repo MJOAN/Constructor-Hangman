@@ -46,11 +46,9 @@ Word.prototype.placeHolder = function() {
     console.log(spaceHolder.join(" ")); // supposed to 'join' the "__" in word array
 };
 
-var word = new Word(chosenWord, spaceHolder, lettersInWord, lettersInWordLength, letterGuessed);
+var word = new Word(chosenWord, spaceHolder, lettersInWord);
 // run placeholder prototype function to start game "__ __ " 
 word.placeHolder();
-
-prompt.start();
 
 var startGame = function() {
 // runs inquirer and asks the user a series of questions 
@@ -65,17 +63,18 @@ inquirer.prompt([{
       }
       return false;
   },
-  }, ]).then(function(result) {
+  }, ]).then(function(err, res) {
 
-  console.log(result);
+  console.log(res);
   // set user guess callback from result to variables letterGuessed
-  word.letterGuessed = result, false;
+  word.letterGuessed = res, false;
 
   console.log(chosenWord);
   console.log(word.letterGuessed)
   console.log("test");
-  console.log(lettersInWordLength);
+  console.log(word.lettersInWordLength);
 
+// var checkLetterWithPlaceholder = function() {
 for (var i = 0; i < word.lettersInWordLength; i++) {
     console.log("test");
     // if letterGuess is === to chosenword letter set to true
@@ -95,6 +94,7 @@ for (var i = 0; i < word.lettersInWordLength; i++) {
         startGame();
     }
 
+// var replaceLetterWithPlaceholder = function() {
   if (word.letterGuessed) {
       // Loop through the word
       for (var j = 0; j < word.lettersInWordLength; j++) {
@@ -115,25 +115,6 @@ for (var i = 0; i < word.lettersInWordLength; i++) {
 };
 
 startGame();
-
-var promptUser = function() {
-inquirer.prompt([{
-    name: "start",
-    type: "input",
-    message: 'Do you think you have the word yet? Guess again!',
-    validate: function(value) {
-        if (isNaN(value) === true) {
-            return true;
-        }
-        return false;
-    },
-}, ]).then(function(err, res) {
-
-    console.log(res);
-    startGame();
-});
-};
-
 
 var endGame = function() {
 
