@@ -33,7 +33,7 @@ word.placeHolder();
             }
             return false;
         },
-    }, ]).then(function(err, res) {
+    }, ]).then(function(res) {
         // initializes the variable to be an object user answers to questions
         var letter = new Letter(res.letterGuessed);
 
