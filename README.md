@@ -2,9 +2,9 @@
 
 ### Overview
 
-In this week's assignment, you will create a hangman command-line game using constructor functions.
+In this week's assignment, I created a hangman command-line game using constructor functions! Yay!
 
-![Hangman Cli](Images/01-Hangman-Cli.gif)
+![Hangman Cli](01-Hangman-Cli.gif)
 
 ## Instructions
 
